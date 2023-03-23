@@ -1,22 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { BlueComponent } from './components/BlueComponent';
+import { RedComponent } from './components/RedComponent';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [color, setColor] = useState("");
+
+  const handleClick = (color) => {
+    console.log("Hola soy Blue");
+    alert("Señor usuario su pantalla a cambiado a color: "+ color);
+    setColor(color);
+  }
+
+  // useEffect(() => {
+  //   document.body.style.backgroundColor = color;
+  // }, [color])
+  
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 style={{"color": `${color}`}}>Prueba Basica</h1>
+
+        <div>
+           <button className='blue' onClick={ () => handleClick("blue")}>Azul</button>
+           <button className='red' onClick={ () => handleClick("red")}>Rojo</button>
+        </div>
       </header>
     </div>
   );
