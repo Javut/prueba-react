@@ -1,17 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-import { BlueComponent } from './components/BlueComponent';
-import { RedComponent } from './components/RedComponent';
 import { useEffect, useState } from 'react';
+import { Modal } from 'bootstrap/dist/js/bootstrap.bundle';
 
 function App() {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  
 
   const [color, setColor] = useState("");
 
   const handleClick = (color) => {
     console.log("Hola soy Blue");
     alert("Señor usuario su pantalla a cambiado a color: "+ color);
+    setShow(true)
     setColor(color);
+    <Modal show={show}></Modal>
   }
 
   // useEffect(() => {
